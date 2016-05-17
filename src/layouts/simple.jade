@@ -1,0 +1,19 @@
+include ../_mixins.jade
+doctype html
+block vars
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    - if (typeof canonical === 'string')
+      link(rel='canonical' href=canonical)
+    meta(name='description', content=(description || title))
+    title #{ title || 'Hello World' }
+    style.
+      @import url('https://fonts.googleapis.com/css?family=Roboto:400italic,300,700,400');
+    link(rel='icon', type='image/ico', href='/assets/images/favicon.ico')
+    link(rel='stylesheet', href='/css/main.css')
+    script(src='/js/main.js')
+    block head
+  body(class= ([ page, template || '' ] || [ 'all' ] ).join(' '))
+    block body
